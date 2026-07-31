@@ -2,9 +2,9 @@ import CanvasSequence from "@/components/CanvasSequence";
 
 export default function Home() {
   return (
-    // 800vh ensures a long and cinematic scroll distance. 
+    // 300vh робить прокрутку значно швидшою (коротшою).
     // The CanvasSequence component is sticky and will remain in viewport.
-    <main className="relative w-full h-[800vh] bg-black">
+    <main className="relative w-full h-[300vh] bg-black">
       <CanvasSequence 
         frameCount={120} 
         imagePathPrefix="/images/ezgif-frame-" 
