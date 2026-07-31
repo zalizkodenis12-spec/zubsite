@@ -81,10 +81,12 @@ export default function CanvasSequence({
       canvas.height = targetHeight;
     }
     
-    // Mathematical equivalent to "object-fit: cover"
+    // For desktop (landscape) we use "cover" (Math.max) to fill screen.
+    // For mobile (portrait) we use "contain" (Math.min) so the subject isn't cropped out.
     const hRatio = targetWidth / img.width;
     const vRatio = targetHeight / img.height;
-    const ratio = Math.max(hRatio, vRatio);
+    const isPortrait = targetHeight > targetWidth;
+    const ratio = isPortrait ? Math.min(hRatio, vRatio) : Math.max(hRatio, vRatio);
     
     const renderWidth = img.width * ratio;
     const renderHeight = img.height * ratio;
